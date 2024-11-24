@@ -48,7 +48,7 @@ var input = [-3, -1, -7, -2];
 var temp;
 var output = input[0];
 
-function Question3(input, output) {
+function Question3(input, output, temp) {
   for (let i = 0; i < input.length; i++) {
     // console.log(input[i]);
     temp = input[i];
@@ -61,7 +61,7 @@ function Question3(input, output) {
   return output;
 }
 
-// console.log(Question3(input, output))
+// console.log(Question3(input, output, temp));
 
 // Question 4 : Check if two strings are anagrams
 
@@ -71,8 +71,8 @@ var string2 = "silent";
 var string1 = "hello";
 var string2 = "world";
 
-// var string1 = "cinema";
-// var string2 = "iceman";
+var string1 = "cinema";
+var string2 = "iceman";
 
 var matched = false;
 
@@ -86,8 +86,6 @@ function Question4(string1, string2) {
       if (string1[i] === string2[j]) {
         matched = true;
         break;
-      } else if (string1[i] !== string2[j]) {
-        matched = false;
       }
     }
 
@@ -130,6 +128,10 @@ function Question5(input, vowels, count) {
 
 var input = [1, 2, 2, 3];
 
+var input = [5, 5, 5, 5];
+
+var input = [1, 2, 3, 4];
+
 // 1 2 2 3
 // push
 // 2 2 3
@@ -138,20 +140,23 @@ var output = [];
 
 function Question6(input, output) {
   for (let i = 0; i < input.length; i++) {
-    console.log(input[i]);
+    let duplicate = false;
 
-    for (let j = i + 1; j < input.length; j++) {
-      console.log[input[j]];
-
-      if (input[i] !== input[j]) {
-        output.push(input[i]);
+    for (let j = 0; j < output.length; j++) {
+      if (input[i] === input[j]) {
+        duplicate = true;
+        break;
       }
+    }
+
+    if (duplicate == false) {
+      output.push(input[i]);
     }
   }
 
   return output;
 }
-// console.log(Question6(input, output))
+// console.log(Question6(input, output));
 
 // Question 7 : Find the intersection of two arrays
 
@@ -183,22 +188,69 @@ function Question7(array1, array2) {
 // Question 8 : Find first non repeating character
 
 var input = "swiss";
-var matched = true;
 
-function Question8(input, matched) {
+var input = "level";
+
+var input = "aabbcc";
+
+function Question8(input) {
   for (let i = 0; i < input.length; i++) {
-    for (let j = i + 1; j < input.length; j++) {
-      if (input[i] !== input[j]) {
-        matched = false;
-      }
-      if (matched == false) {
-        return input[i];
+    let repeating = false;
+
+    for (let j = 0; j < input.length; j++) {
+      if (i !== j && input[i] === input[j]) {
+        repeating = true;
+        break;
       }
     }
+
+    if (repeating == false) {
+      return input[i];
+    }
   }
+
+  return "";
 }
 
-// console.log(Question8(input,matched));
+// console.log(Question8(input));
+
+// Question 9 : merge two sorted arrays
+
+var arr1 = [1, 3, 5];
+var arr2 = [2, 4, 6];
+
+function Question9(array1, array2) {
+  let mergedArray = [];
+  let i = 0; // Pointer for arr1
+  let j = 0; // Pointer for arr2
+
+  // Merge elements from both arrays until one is exhausted
+  while (i < arr1.length && j < arr2.length) {
+      if (arr1[i] < arr2[j]) {
+          mergedArray.push(arr1[i]);
+          i++;
+      } else {
+          mergedArray.push(arr2[j]);
+          j++;
+      }
+  }
+
+  // Add remaining elements from arr1, if any
+  while (i < arr1.length) {
+      mergedArray.push(arr1[i]);
+      i++;
+  }
+
+  // Add remaining elements from arr2, if any
+  while (j < arr2.length) {
+      mergedArray.push(arr2[j]);
+      j++;
+  }
+
+  return mergedArray;
+}
+
+// console.log(Question9(array1, array2));
 
 // Question 10 : move zeros to end
 
@@ -291,21 +343,22 @@ function Question13(input) {
 // 18 :
 
 var input = "()";
+// console.log(input.length)
 
 function Question18(input) {
-  if (input.length - 1 % 2 == 0) {
+  if (input.length % 2 == 0) {
     return true;
   }
 }
 
-console.log(Question18());
+// console.log(Question18());
 
 // Question 17 : sort an array
 
 var input = [3, 1, 2];
 var output = [];
 
-function Question17(input, output) {}
+// function Question17(input, output) {}
 
 // 19
 
@@ -352,4 +405,4 @@ function Question20() {
   }
 }
 
-// console.log(Question20());
+console.log(Question20());
