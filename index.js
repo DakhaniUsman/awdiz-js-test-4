@@ -226,25 +226,25 @@ function Question9(array1, array2) {
 
   // Merge elements from both arrays until one is exhausted
   while (i < arr1.length && j < arr2.length) {
-      if (arr1[i] < arr2[j]) {
-          mergedArray.push(arr1[i]);
-          i++;
-      } else {
-          mergedArray.push(arr2[j]);
-          j++;
-      }
+    if (arr1[i] < arr2[j]) {
+      mergedArray.push(arr1[i]);
+      i++;
+    } else {
+      mergedArray.push(arr2[j]);
+      j++;
+    }
   }
 
   // Add remaining elements from arr1, if any
   while (i < arr1.length) {
-      mergedArray.push(arr1[i]);
-      i++;
+    mergedArray.push(arr1[i]);
+    i++;
   }
 
   // Add remaining elements from arr2, if any
   while (j < arr2.length) {
-      mergedArray.push(arr2[j]);
-      j++;
+    mergedArray.push(arr2[j]);
+    j++;
   }
 
   return mergedArray;
@@ -288,6 +288,18 @@ function Question10(input, greaterThan0, lesserThan0) {
 // console.log(Question10(input, greaterThan0, lesserThan0));
 
 // Question 11 : find missing number in sequence
+
+var input = [1, 2, 4, 5];
+
+function Question11(input) {
+  for (let i = 1; i <= input.length + 1; i++) {
+    if (!input.includes(i)) {
+      return i;
+    }
+  }
+}
+
+console.log(Question11(input));
 
 // Question 12 : find the index of target
 
