@@ -382,8 +382,7 @@ var input = 1;
 var output = [0, 1];
 
 function Question15(input) {
-
-  if (input == 1){
+  if (input == 1) {
     output = [0];
   }
   for (let i = 2; i < input; i++) {
@@ -392,27 +391,85 @@ function Question15(input) {
 
   return output;
 }
-console.log(Question15(input));
+// console.log(Question15(input));
 
-// 18 :
+// Question 16 : find the max subarray sum
 
-var input = "()";
-// console.log(input.length)
+var input = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+var input = [1, 2, 3, 4];
+var input = [-1, -2, -3];
+var max = input[0];
+var temp = 0;
 
-function Question18(input) {
-  if (input.length % 2 == 0) {
-    return true;
+function Question16(input, max, temp) {
+  for (let i = 0; i < input.length; i++) {
+    temp += input[i];
+    console.log(temp, "temp");
+
+    if (temp > max) {
+      max = temp;
+      console.log(max, "max");
+    }
+
+    if (temp < 0) {
+      temp = 0;
+    }
   }
-}
 
-// console.log(Question18());
+  return max;
+}
+// console.log(Question16(input, max, temp));
 
 // Question 17 : sort an array
 
 var input = [3, 1, 2];
-var output = [];
 
-// function Question17(input, output) {}
+function Question17(input) {
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < input.length - i - 1; j++) {
+      if (input[j] > input[j + 1]) {
+        console.log(input[j], "input[j]");
+        let temp = input[j];
+        console.log(temp, "temp");
+        input[j] = input[j + 1];
+        console.log(input[j], "input[j]");
+        input[j + 1] = temp;
+        console.log(input[j + 1], "input[j + 1]");
+      }
+    }
+  }
+  return input;
+}
+
+// console.log(Question17(input))
+
+// 18 :
+
+var input = "()";
+var input = "(]";
+var input = "{}";
+var count;
+// console.log(input.length);
+
+function Question18(input) {
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] == "(") {
+      console.log("opening");
+      count++;
+    } else if (input[i] == ")") {
+      console.log("closing");
+      count--;
+    }
+  }
+
+  if (count == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(Question18(input));
 
 // 19
 
