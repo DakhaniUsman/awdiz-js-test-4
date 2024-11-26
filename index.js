@@ -291,15 +291,20 @@ function Question10(input, greaterThan0, lesserThan0) {
 
 var input = [1, 2, 4, 5];
 
+var input = [3, 5, 6, 7];
+var start = input[0];
+
 function Question11(input) {
-  for (let i = 1; i <= input.length + 1; i++) {
-    if (!input.includes(i)) {
-      return i;
+  for (let i = 0; i < input.length; i++) {
+    console.log(start, input[i]);
+    if (start !== input[i]) {
+      return start;
     }
+    start++;
   }
 }
 
-console.log(Question11(input));
+// console.log(Question11(input));
 
 // Question 12 : find the index of target
 
@@ -346,11 +351,48 @@ function Question13(input) {
 
 // Question 14 : check if number is a prime number
 
-// var input = 5;
-// function Question14 (input) {
+var input = 5;
+var input = 4;
+var input = 11;
+// number divisible by itslef and one only
 
-//     if (input%2 == )
-// }
+function Question14(input) {
+  if (input <= 1) {
+    return false;
+  }
+
+  for (let i = 2; i < input; i++) {
+    if (input % i == 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// console.log(Question14(input));
+
+// Question 15 : Generate a fibonacci sequence
+
+// fibonacci sequence means the number is sum to twow preceeding numbers
+// means (i - 2) + (i - 1)
+
+var input = 5;
+var input = 1;
+var output = [0, 1];
+
+function Question15(input) {
+
+  if (input == 1){
+    output = [0];
+  }
+  for (let i = 2; i < input; i++) {
+    output.push(output[i - 1] + output[i - 2]);
+  }
+
+  return output;
+}
+console.log(Question15(input));
 
 // 18 :
 
@@ -390,9 +432,9 @@ function Question19() {
   return product;
 }
 
-console.log(Question19());
+// console.log(Question19());
 
-// 20 :
+// 20 : Count the frequency of elements in an array
 
 var input = [1, 2, 2, 3];
 
@@ -412,9 +454,9 @@ function Question20() {
       }
     }
 
-    console.log(input[i], count);
+    console.log(input[i], ":", count);
     count = 0;
   }
 }
 
-console.log(Question20());
+// console.log(Question20());
