@@ -467,6 +467,7 @@ function Question18(input) {
   } else {
     return false;
   }
+  
 }
 
 console.log(Question18(input));
